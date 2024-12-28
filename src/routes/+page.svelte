@@ -1,32 +1,10 @@
 <script>
-	import Carousel from 'svelte-carousel';
-	import { browser } from '$app/environment';
-	import Reviews from '$lib/components/Reviews.svelte';
 	import { AnimatedCounter } from '@benzara/svelte-animated-counter';
-	let carousel;
+	import Carousel from '$lib/components/Carousel.svelte';
+	import Reviews from '$lib/components/Reviews.svelte';
 </script>
 
-{#if browser}
-	<Carousel
-		bind:this={carousel}
-		autoplay
-		autoplayDuration={5000}
-		dots={false}
-		arrows={false}
-		swiping={false}
-	>
-		<img
-			class="max-h-60 object-cover"
-			src="https://images.pexels.com/photos/6829543/pexels-photo-6829543.jpeg"
-			alt="image1"
-		/>
-		<img
-			class="max-h-60 object-cover"
-			src="https://images.pexels.com/photos/29161722/pexels-photo-29161722/free-photo-of-assorted-fresh-pastries-on-wooden-board.jpeg"
-			alt="image2"
-		/>
-	</Carousel>
-{/if}
+<Carousel />
 <div class="mx-2">
 	<p class="my-2">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat sem eget enim
@@ -40,6 +18,7 @@
 			interval={100}
 			direction="down"
 			loop={false}
+			ease="ease-in-out"
 			class="text-lg font-bold"
 		/> we had
 		<AnimatedCounter
@@ -47,6 +26,7 @@
 			interval={20}
 			direction="up"
 			loop={false}
+			ease="ease-in-out"
 			class="text-lg font-bold"
 		/> happy users.
 	</div>
