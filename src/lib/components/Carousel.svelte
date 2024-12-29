@@ -1,20 +1,21 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import { Carousel } from 'flowbite';
 	import type { CarouselItem, CarouselOptions, CarouselInterface } from 'flowbite';
 	import type { InstanceOptions } from 'flowbite';
 
-	if (browser) {
-		const carouselElement: HTMLElement = document.getElementById('carousel') ?? new HTMLElement();
+	onMount(() => {
+		const carouselElement: HTMLElement =
+			document.getElementById('carousel') ?? document.createElement('div');
 
 		const items: CarouselItem[] = [
 			{
 				position: 0,
-				el: document.getElementById('carousel-item-1') ?? new HTMLElement()
+				el: document.getElementById('carousel-item-1') ?? document.createElement('div')
 			},
 			{
 				position: 1,
-				el: document.getElementById('carousel-item-2') ?? new HTMLElement()
+				el: document.getElementById('carousel-item-2') ?? document.createElement('div')
 			}
 		];
 
@@ -36,7 +37,7 @@
 		);
 
 		carousel.cycle();
-	}
+	});
 </script>
 
 <div id="carousel" class="relative w-full">

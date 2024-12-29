@@ -1,10 +1,13 @@
 <script>
+	import { browser } from '$app/environment';
 	import { AnimatedCounter } from '@benzara/svelte-animated-counter';
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Reviews from '$lib/components/Reviews.svelte';
 </script>
 
-<Carousel />
+{#if browser}
+	<Carousel />
+{/if}
 <div class="mx-2">
 	<p class="my-2">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat sem eget enim
